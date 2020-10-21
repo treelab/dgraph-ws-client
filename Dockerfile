@@ -2,13 +2,13 @@
 # Cargo Build Stage
 # ------------------------------------------------------------------------------
 
-FROM registry.cn-zhangjiakou.aliyuncs.com/caminer/rust_1:1.47.0 as cargo-build
+FROM registry.cn-zhangjiakou.aliyuncs.com/caminer/rust:1.47.0 as cargo-build
 
-#RUN apt-get update
+RUN apt-get update
 
-#RUN apt-get install libssl-dev pkg-config -y
+RUN apt-get install libssl-dev pkg-config -y
 RUN rustup component add rustfmt --toolchain 1.47.0-x86_64-unknown-linux-gnu
-#WORKDIR /usr/src/dgraph-ws-client
+WORKDIR /usr/src/dgraph-ws-client
 
 COPY . .
 
